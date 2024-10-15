@@ -1,0 +1,155 @@
+@use 'variable' as var;
+@use 'mixin' as mixin;
+
+//
+// イベントセクション
+//
+.event-list {
+    margin-top: 40px;
+
+    /* ① Gridに変更 */
+    display: flex;
+    flex-direction: column;
+    row-gap: 40px;
+
+    @include mixin.md {
+        /* ① Gridに変更 */
+
+        /* 横並びに */
+        flex-flow: row wrap;
+        column-gap: 30px;
+    }
+}
+
+/* 記事 */
+.entry {
+    /* ① Gridに変更 */
+
+    position: relative;
+    /* ラベル用 */
+    /* 記事を縦並びに（並び替えるため） */
+    display: flex;
+    flex-direction: column;
+
+    @include mixin.md {
+        /* ① Gridに変更 */
+
+        /* 幅を1/2に */
+        width: calc((100% - 30px)/2);
+    }
+
+    @include mixin.lg {
+        /* ① Gridに変更 */
+
+        /* 幅を1/3に */
+        width: calc((100% - 60px)/3);
+    }
+
+    &-body {
+        /* 記事を縦並びに（並び替えるため） */
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+
+    &-catch {
+        /* 記事を縦並びに（並び替えるため） */
+        order: -2;
+
+        &-photo {
+            /* 画像の幅を成り行きに */
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    &-title {
+        font-size: 2rem;
+        font-weight: bold;
+    }
+
+    &-text {
+        margin: 20px 0 30px;
+    }
+
+    &-label {
+        /* ラベル */
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50px;
+        height: 50px;
+        top: -15px;
+        left: -15px;
+        transform: rotate(-20deg);
+        border-radius: 50%;
+        background-color: #000;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1;
+        text-align: center;
+        color: #fff;
+    }
+
+    &-pickup {
+        @include mixin.lg {
+            /* ① Gridに変更 */
+
+            /* PICKUPは横並びに */
+            display: flex;
+            flex-flow: nowrap row;
+            column-gap: 30px;
+            /* PICKUPの幅は100%に */
+            width: 100%;
+
+            .datetime {
+                margin-top: 0;
+            }
+
+            .entry-catch,
+            .entry-body {
+                /* ① Gridに変更 */
+                
+                /* PICKUPの幅を1/2に */
+                width: calc((100% - 30px)/2);
+            }
+
+            .btn-more {
+                /* PCのMORE MORE MOREボタン調整 */
+                max-width: 300px;
+                margin: 0 auto;
+            }
+        }
+    }
+}
+
+.datetime {
+    margin-top: 20px;
+    font-size: 1.6rem;
+    /* 記事を縦並びに（並び替えるため） */
+    order: -1;
+}
+
+.btn-more {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 8px 0;
+    border: 1px solid #000;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-align: center;
+    line-height: 1;
+    /* MOREボタンを最下部に */
+    margin-top: auto;
+
+    @include mixin.lg {
+        transition: all .5s;
+
+        &:hover {
+            background-color: #333;
+            color: #fff;
+        }
+    }
+}

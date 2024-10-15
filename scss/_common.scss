@@ -1,0 +1,23 @@
+@use 'mixin' as mixin;
+//
+// 共通で使用するスタイル
+//
+
+.content {
+    /* 両サイドに余白を取る */
+    margin: 0 auto;
+    padding-left: 5vw;
+    padding-right: 5vw;
+
+    @include mixin.lg {
+      /* 最大幅を固定する */
+      max-width: calc(1100px + 10vw);
+    }
+}
+
+.section-ttl {
+    border-bottom: 3px solid #000;
+    font-size: 2.8rem;
+    font-weight: bold;
+    line-height: 1;
+}

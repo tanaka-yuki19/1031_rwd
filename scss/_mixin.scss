@@ -1,0 +1,26 @@
+@use 'variable' as var;
+
+//
+// Mixin
+//
+
+// モバイル用のメディアクエリ
+@mixin sm {
+    @media screen and (max-width: (var.$small-screen - 1)) {
+        @content;
+    }
+}
+
+// ミドルスクリーン用のメディアクエリ
+@mixin md {
+    @media screen and (min-width: var.$medium-screen) {
+        @content;
+    }
+}
+
+// ラージスクリーン用のメディアクエリ
+@mixin lg {
+    @media screen and (min-width: (var.$large-screen + 1)) {
+        @content;
+    }
+}

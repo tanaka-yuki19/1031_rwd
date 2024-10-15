@@ -1,0 +1,30 @@
+@use 'variable' as var;
+
+//
+// ベース
+//
+html {
+    font-size: 10px; /* remを使うための基準値を設定 */
+}
+
+body {
+    background-color: var.$color-white;
+    font-family:
+        /* 先に英字フォントを指定するのがポイント！ */
+        "Roboto",
+        "Helvetica Neue",
+        Arial,
+        "Noto Sans JP",
+        "Hiragino Kaku Gothic ProN",
+        "Hiragino Sans",
+        Meiryo,
+        sans-serif;
+    font-size: 1.6rem;/*　標準フォントサイズを16pxに */
+    color: var.$color-darkgray;
+    line-height: 1.6;
+}
+
+a {
+    color: var.$color-darkgray;
+    text-decoration: none;
+}
