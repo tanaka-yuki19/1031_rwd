@@ -8,22 +8,25 @@
     margin-top: 40px;
 
     /* ① Gridに変更 */
-    display: flex;
-    flex-direction: column;
-    row-gap: 40px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px 20px;
 
     @include mixin.md {
         /* ① Gridに変更 */
-
-        /* 横並びに */
-        flex-flow: row wrap;
+        grid-template-columns: repeat(4, 1fr);
         column-gap: 30px;
+    }
+
+    @include mixin.lg {
+        grid-template-columns: repeat(6, 1fr);
     }
 }
 
 /* 記事 */
 .entry {
     /* ① Gridに変更 */
+    grid-column: span 1;
 
     position: relative;
     /* ラベル用 */
@@ -33,16 +36,11 @@
 
     @include mixin.md {
         /* ① Gridに変更 */
-
-        /* 幅を1/2に */
-        width: calc((100% - 30px)/2);
+        grid-column: span 2;
     }
 
     @include mixin.lg {
         /* ① Gridに変更 */
-
-        /* 幅を1/3に */
-        width: calc((100% - 60px)/3);
     }
 
     &-body {
@@ -95,13 +93,12 @@
     &-pickup {
         @include mixin.lg {
             /* ① Gridに変更 */
+            grid-column: span 6;
 
             /* PICKUPは横並びに */
             display: flex;
             flex-flow: nowrap row;
             column-gap: 30px;
-            /* PICKUPの幅は100%に */
-            width: 100%;
 
             .datetime {
                 margin-top: 0;

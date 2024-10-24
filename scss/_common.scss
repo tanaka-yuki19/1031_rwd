@@ -13,6 +13,13 @@
       /* 最大幅を固定する */
       max-width: calc(1100px + 10vw);
     }
+    /* ↓↓↓ こうなる ↓↓↓ 
+    @media screen and (min-width: (1201px)) {
+      .content {  
+        max-width: calc(1100px + 10vw);
+      }
+    }
+    */
 }
 
 .section-ttl {
