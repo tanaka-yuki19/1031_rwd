@@ -22,9 +22,51 @@
     */
 }
 
+// 全体のレイアウト
+.inner-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 80px;
+  padding-bottom: 40px;
+
+  @include mixin.lg {
+    grid-template-columns: repeat(3, 1fr); // PCサイズでは3列にする
+    column-gap: 30px;
+  }
+}
+
+.event-section,
+.topics-section,
+.banner-list,
+.sponsor-list { grid-column: span 1; }
+
+@include mixin.lg {
+  .event-section,
+  .sponsor-list { grid-column: span 3; }
+
+  .topics-section {
+    grid-column: 1 / span 2; // 1列目から2つ使う
+    grid-row: 2 / span 1; // 2行目から 1つ使う
+  }
+
+  .banner-list { grid-column: 3 / span 1; }
+}
+
 .section-ttl {
     border-bottom: 3px solid #000;
     font-size: 2.8rem;
     font-weight: bold;
     line-height: 1;
+}
+
+// 画像を比率固定で100%表示
+.fit {
+  width: 100%;
+  height: auto;
+}
+
+// ヘッダー、フッターのロゴ
+.site-logo {
+  font-size: 2.8rem;
+  font-weight: bold;
 }
