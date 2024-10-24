@@ -1,0 +1,12 @@
+@use 'mixin' as mixin;
+
+.sponsor-list ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+
+    @include mixin.md {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
+    }
+}
