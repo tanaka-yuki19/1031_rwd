@@ -1,0 +1,31 @@
+@use 'mixin' as mixin;
+
+.topics-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 5px 20px;
+    margin-top: 40px;
+    
+    @include mixin.md {
+        grid-template-columns: 5em auto;
+        row-gap: 20px;
+    }
+
+    dt{
+        font-weight: normal;
+
+            &:not(:first-of-type) {
+                margin-top: 15px;
+            }
+    }
+
+    @include mixin.md {
+        .topics-list & {
+            margin-top: 0;
+        }
+    }
+
+    a {
+        text-decoration: underline;
+    }
+}
