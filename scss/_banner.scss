@@ -1,0 +1,18 @@
+@use 'mixin' as mixin;
+
+.banner-list {
+    ul {
+        display: grid;
+        grid-template-columns: 1fr; // スマホでは1列
+        gap: 40px 30px;
+
+        // 中間サイズ
+        @include mixin.md {
+            grid-template-columns: repeat(2, 1fr); // 2列になる
+        }
+    }
+
+    @include mixin.lg {
+        grid-template-columns: 1fr;
+    }
+}
